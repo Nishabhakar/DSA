@@ -1,30 +1,37 @@
-#bubble sort function
+import time
+import random
+import sys
 
-def bubbleSort(arr,n):
-    if(n>0):
-        for i in range(0,n):
-            if (arr[i]>arr[i+1]):
+#recursion function for bubble sort
+def BubbleSort(arr, n):
+    if (n > 0):
+        for i in range(0, n):
+            if (arr[i] > arr[i + 1]):
                 temp = arr[i]
                 arr[i] = arr[i + 1]
                 arr[i + 1] = temp
-        bubbleSort(arr, n - 1)
+        BubbleSort(arr, n - 1)
 
-#main functin
-arr=[]
+#to set custom recursion stack value
+sys.setrecursionlimit(10**6)
 
-# to get the size from user
-n = int(input("Enter the size of ur array: "))
+arr = []
+n = int(input("Enter the size of the array: "))
 
-print("Enter the Element of  array:")
+# starting time
+start = time.time()
 
-for i in range(0,n):
-    #to generate random numbers in array
-    num = int(input())
+print("Enter the Element of the array:")
+for i in range(0, n):
+    num = random.randint(0, n)
     arr.append(num)
-    
-bubbleSort(arr, n - 1) #bubblesorrt function called!
 
+BubbleSort(arr, n - 1)
 print("After Sorting Array Elements are:")
-
-for i in range(0,n):
-    print(arr[i],end=" ")
+for i in range(0, n):
+    print(arr[i], end=" ")
+    
+#ending time
+end = time.time()
+# total time taken
+print(f"runtime of the program is{end - start}")

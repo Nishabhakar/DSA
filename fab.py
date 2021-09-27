@@ -1,7 +1,7 @@
 import time
 
 #program body
-def recur_fibo(n):
+def recur_fibo(n):#recursive function
    if n <= 1:
        return n
    else:
@@ -16,12 +16,13 @@ else:
    print("Fibonacci sequence:")
 
 #starting time
-   start = time.time()
+start = time.time()
 
-   for i in range(nterms):
-       print(recur_fibo(i))
+for i in range(nterms):
+   print(recur_fibo(i))
 
-   end = time.time()
+# noting end time
+end = time.time()
 
 #total time taken
 print(f"runtime of the program is{end - start}")
